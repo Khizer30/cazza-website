@@ -3,8 +3,17 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@components/button";
+import isoImg from "@assets/image/iso.webp";
+import aesImg from "@assets/image/aes.webp";
+import gdprImg from "@assets/image/gdpr.webp";
 
 export default function CTA(): ReactNode {
+  const certs = [
+    { name: "ISO", image: isoImg },
+    { name: "AES", image: aesImg },
+    { name: "GDPR", image: gdprImg }
+  ];
+
   return (
     <>
       <section className="py-20 bg-foreground text-background">
@@ -19,12 +28,18 @@ export default function CTA(): ReactNode {
               Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
-              {["ISO", "AES", "GDPR"].map((cert) => (
-                <div key={cert} className="flex flex-col items-center gap-1">
+              {certs.map((cert) => (
+                <div key={cert.name} className="flex flex-col items-center gap-1">
                   <div className="relative w-16 h-16">
-                    <Image src={`/${cert}.png`} alt={`${cert} Compliant`} fill className="object-contain" />
+                    <Image
+                      src={cert.image}
+                      alt={`${cert.name} Compliant`}
+                      fill
+                      draggable={false}
+                      className="object-contain"
+                    />
                   </div>
-                  <span className="text-xs text-background/70">{cert} Compliant</span>
+                  <span className="text-xs text-background/70">{cert.name} Compliant</span>
                 </div>
               ))}
             </div>
