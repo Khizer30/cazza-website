@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, MessageSquare, Zap, RefreshCw, Users } from "lucide-react";
 import { Button } from "@components/button";
 import { Card, CardContent } from "@components/card";
+import { LINKS } from "@lib/links";
 
 export default function Solution(): ReactNode {
   return (
@@ -55,7 +56,7 @@ export default function Solution(): ReactNode {
             <div className="text-center">
               <Button
                 size="lg"
-                onClick={() => (window.location.href = "https://app.cazza.ai/signup")}
+                onClick={() => (window.location.href = LINKS.appSignup)}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
                 Start Free Trial

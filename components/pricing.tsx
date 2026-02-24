@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@components/button";
 import { Card, CardContent } from "@components/card";
+import { LINKS } from "@lib/links";
 
 export default function Pricing(): ReactNode {
   return (
@@ -53,7 +54,7 @@ export default function Pricing(): ReactNode {
                     </ul>
                   </div>
                   <Button
-                    onClick={() => (window.location.href = "https://app.cazza.ai/login")}
+                    onClick={() => (window.location.href = LINKS.appLogin)}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     Subscribe now
@@ -91,7 +92,7 @@ export default function Pricing(): ReactNode {
                     </div>
                   </div>
                   <Button
-                    onClick={() => (window.location.href = "https://app.cazza.ai/login")}
+                    onClick={() => (window.location.href = LINKS.appLogin)}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     Book call

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Star, Zap } from "lucide-react";
 import Logo from "@assets/image/logo.webp";
 import { Button } from "@components/button";
+import { LINKS } from "@lib/links";
 
 export default function Hero(): ReactNode {
   return (
@@ -31,7 +32,7 @@ export default function Hero(): ReactNode {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  onClick={() => (window.location.href = "https://app.cazza.ai/signup")}
+                  onClick={() => (window.location.href = LINKS.appSignup)}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105 group"
                 >
                   Start Free Trial Today

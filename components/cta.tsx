@@ -6,6 +6,7 @@ import { Button } from "@components/button";
 import isoImg from "@assets/image/iso.webp";
 import aesImg from "@assets/image/aes.webp";
 import gdprImg from "@assets/image/gdpr.webp";
+import { LINKS } from "@lib/links";
 
 export default function CTA(): ReactNode {
   const certs = [
@@ -22,7 +23,7 @@ export default function CTA(): ReactNode {
             <h2 className="text-4xl lg:text-6xl font-bold">Stop waiting. Start asking Cazza.</h2>
             <Button
               size="lg"
-              onClick={() => (window.location.href = "https://app.cazza.ai/signup")}
+              onClick={() => (window.location.href = LINKS.appSignup)}
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl hover:shadow-2xl transition-all hover:scale-105"
             >
               Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />

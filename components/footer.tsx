@@ -3,6 +3,7 @@ import { useEffect, type ReactNode, type MouseEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@assets/image/logo.webp";
+import { LINKS } from "@lib/links";
 
 export default function Footer(): ReactNode {
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Footer(): ReactNode {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="space-y-4">
-              <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
+              <Link href={LINKS.home} className="inline-block hover:opacity-80 transition-opacity">
                 <Image src={Logo} alt="Cazza" height={32} width={120} className="h-8 w-auto brightness-0 invert" />
               </Link>
               <p className="text-sm text-background/70">
@@ -36,7 +37,7 @@ export default function Footer(): ReactNode {
               <ul className="space-y-2 text-sm text-background/70">
                 <li>
                   <a
-                    href="#solution"
+                    href={LINKS.solutionSection}
                     onClick={scrollToSection("solution")}
                     className="hover:text-background transition-colors"
                   >
@@ -45,7 +46,7 @@ export default function Footer(): ReactNode {
                 </li>
                 <li>
                   <a
-                    href="#platforms"
+                    href={LINKS.platformsSection}
                     onClick={scrollToSection("platforms")}
                     className="hover:text-background transition-colors"
                   >
@@ -54,7 +55,7 @@ export default function Footer(): ReactNode {
                 </li>
                 <li>
                   <a
-                    href="#pricing"
+                    href={LINKS.pricingSection}
                     onClick={scrollToSection("pricing")}
                     className="hover:text-background transition-colors"
                   >
@@ -67,12 +68,12 @@ export default function Footer(): ReactNode {
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-background/70">
                 <li>
-                  <Link href="/privacy-policy" className="hover:text-background transition-colors">
+                  <Link href={LINKS.privacyPolicy} className="hover:text-background transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms-and-conditions" className="hover:text-background transition-colors">
+                  <Link href={LINKS.termsAndConditions} className="hover:text-background transition-colors">
                     Terms & Conditions
                   </Link>
                 </li>
