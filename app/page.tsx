@@ -29,39 +29,11 @@ import Hero from "@components/hero";
 import Solution from "@components/solution";
 import Partner from "@components/partner";
 import Feature from "@components/feature";
-
-const testimonials = [
-  {
-    quote: "Cazza.ai is meticulous, knowledgeable, and responsive. It's become a key part of how we run our business.",
-    author: "Moicha Matcha",
-    rating: 5
-  },
-  {
-    quote: "Always willing to go the extra mile; communication, efficiency, and insights are top-notch.",
-    author: "Stoic Store UK",
-    rating: 5
-  },
-  {
-    quote: "Attention to detail and overall knowledge is excellent. The platform keeps us on top of best practices.",
-    author: "3PL Pro",
-    rating: 5
-  },
-  {
-    quote: "Excellent communication and a high standard of work, even on tight timelines. Cazza.ai just works.",
-    author: "Footsie 100",
-    rating: 5
-  },
-  {
-    quote: "Professional, knowledgeable, and responsive — went above and beyond to make the numbers clear.",
-    author: "Candisearch",
-    rating: 5
-  },
-  { quote: "Quick to respond and a true one-stop shop for our data needs. Game changer.", author: "Eudemo", rating: 5 }
-];
+import Testimonial from "@components/testimonial";
+import WhyCazza from "@components/whyCazza";
 
 export default function LandingPage(): ReactNode {
   const router = useRouter();
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
@@ -76,9 +48,6 @@ export default function LandingPage(): ReactNode {
     window.history.pushState(null, "", `#${sectionId}`);
   };
 
-  const nextTestimonial = () => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  const prevTestimonial = () => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -86,92 +55,8 @@ export default function LandingPage(): ReactNode {
       <Solution />
       <Partner />
       <Feature />
-
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Loved by eCommerce sellers worldwide</h2>
-            </div>
-            <div className="relative">
-              <Card className="border-2 shadow-xl">
-                <CardContent className="p-8 lg:p-12">
-                  <div className="space-y-6">
-                    <div className="flex justify-center">
-                      {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 fill-yellow-500 text-yellow-500" />
-                      ))}
-                    </div>
-                    <blockquote className="text-xl lg:text-2xl text-center text-foreground font-medium leading-relaxed">
-                      "{testimonials[currentTestimonial].quote}"
-                    </blockquote>
-                    <p className="text-center text-muted-foreground font-medium">
-                      — {testimonials[currentTestimonial].author}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-              <div className="flex justify-center gap-4 mt-8">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevTestimonial}
-                  className="hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextTestimonial}
-                  className="hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why to use Cazza */}
-      <section id="why-cazza" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Why to use Cazza</h2>
-              <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-                See the difference Cazza makes in managing your eCommerce finances
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="border-2 border-border rounded-lg p-6 bg-card hover:border-primary/50 transition-all">
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-foreground text-center">Before Cazza</h3>
-                  <div className="border-2 border-border rounded-lg overflow-hidden bg-background relative h-64">
-                    <Image src="/beofre.png" alt="Before using Cazza" fill className="object-contain" />
-                  </div>
-                  <p className="text-sm text-muted-foreground text-center">
-                    Manual data entry, spreadsheets, and time-consuming reconciliation
-                  </p>
-                </div>
-              </div>
-              <div className="border-2 border-primary/50 rounded-lg p-6 bg-card hover:border-primary transition-all">
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-foreground text-center">After Cazza</h3>
-                  <div className="border-2 border-primary/30 rounded-lg overflow-hidden bg-background relative h-64">
-                    <Image src="/after.png" alt="After using Cazza" fill className="object-contain" />
-                  </div>
-                  <p className="text-sm text-muted-foreground text-center">
-                    Instant answers, automated insights, and real-time financial clarity
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonial />
+      <WhyCazza />
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-muted/30">
