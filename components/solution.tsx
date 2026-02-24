@@ -1,3 +1,4 @@
+"use client";
 import type { ReactNode } from "react";
 import { ArrowRight, MessageSquare, Zap, RefreshCw, Users } from "lucide-react";
 import { Button } from "@components/button";
