@@ -31,6 +31,8 @@ import Partner from "@components/partner";
 import Feature from "@components/feature";
 import Testimonial from "@components/testimonial";
 import WhyCazza from "@components/whyCazza";
+import Pricing from "@components/pricing";
+import FAQ from "@components/faq";
 
 export default function LandingPage(): ReactNode {
   const router = useRouter();
@@ -57,143 +59,8 @@ export default function LandingPage(): ReactNode {
       <Feature />
       <Testimonial />
       <WhyCazza />
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Simple, transparent pricing</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* Rookie Plan */}
-              <Card className="border-2 hover:shadow-xl transition-all">
-                <CardContent className="p-8 space-y-6">
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold text-foreground">Rookie</h3>
-                    <div className="space-y-1">
-                      <div className="text-lg font-semibold text-foreground">Free 30-day trial</div>
-                      <div className="text-sm text-muted-foreground">Then pay what you think it's worth.</div>
-                    </div>
-                    <p className="text-sm text-muted-foreground pt-2">
-                      Perfect for founders who want instant clarity without the jargon.
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Includes:</p>
-                    <ul className="space-y-2.5">
-                      {[
-                        "AI assistant trained in UK tax and e-commerce",
-                        "Ask anything, like:",
-                        "Unlimited AI searches + full chat history",
-                        "Connect Amazon Seller Central, Shopify, TikTok Shop, Xero"
-                      ].map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          {feature.includes("Ask anything") ? (
-                            <span className="text-muted-foreground ml-5">{feature}</span>
-                          ) : (
-                            <>
-                              <CheckCircle2 className="w-4 text-primary flex-shrink-0 mt-0.5" />
-                              <span className="text-foreground">{feature}</span>
-                            </>
-                          )}
-                        </li>
-                      ))}
-                      <li className="text-sm text-muted-foreground ml-7">
-                        <div>"Do I need to register for VAT yet?"</div>
-                        <div>"What's my net margin on TikTok vs Amazon?"</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <Button
-                    onClick={() => router.push("/login")}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    Subscribe now
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Master Plan */}
-              <Card className="border-2 hover:shadow-xl transition-all">
-                <CardContent className="p-8 flex flex-col justify-between h-full">
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-foreground">Master</h3>
-                      <div className="space-y-1">
-                        <div className="text-lg font-semibold text-foreground">From £150/month</div>
-                        <div className="text-sm text-muted-foreground">(ex VAT)</div>
-                      </div>
-                      <p className="text-sm text-muted-foreground pt-2">For growing brands ready for expert support.</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium text-foreground">Includes:</p>
-                      <ul className="space-y-2.5">
-                        {[
-                          "Everything in Rookie, plus:",
-                          "Direct live chat with your accountant",
-                          "Full bookkeeping and bank reconciliations in Xero",
-                          "Year-end accounts and corporation tax filings",
-                          "VAT registration and quarterly/monthly returns"
-                        ].map((feature, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm">
-                            <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                  <Button
-                    onClick={() => router.push("/login")}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    Book call
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Frequently Asked Questions</h2>
-            </div>
-            <Accordion type="single" collapsible className="space-y-4">
-              {[
-                {
-                  q: "Which platforms can I connect?",
-                  a: "Amazon, TikTok Shop, Shopify, and Xero — with more integrations coming soon."
-                },
-                {
-                  q: "Do I still need my accountant?",
-                  a: "Yes — Cazza gives you instant clarity, but your accountant still handles tax filing, year-end accounts, and strategic advice."
-                },
-                {
-                  q: "Is my data secure?",
-                  a: "Absolutely. All data is encrypted in-transit and at-rest. We're fully GDPR-compliant and never sell or share your information."
-                }
-              ].map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="border-2 border-border rounded-lg px-6 hover:border-primary/50 transition-colors last:border-b-2"
-                >
-                  <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <Pricing />
+      <FAQ />
 
       {/* CTA Section */}
       <section className="py-20 bg-foreground text-background">
