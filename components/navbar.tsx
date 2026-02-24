@@ -2,13 +2,10 @@
 import { useEffect, type ReactNode, type MouseEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import Logo from "@assets/image/logo.webp";
 import { Button } from "@components/button";
 
 export default function Navbar(): ReactNode {
-  const router = useRouter();
-
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const id = window.location.hash.substring(1);
@@ -66,11 +63,11 @@ export default function Navbar(): ReactNode {
             </div>
 
             <div className="flex items-center gap-4">
-              <Button variant="outline" onClick={() => router.push("/login")}>
+              <Button variant="outline" onClick={() => (window.location.href = "https://app.cazza.ai/login")}>
                 Sign In
               </Button>
               <Button
-                onClick={() => router.push("/signup")}
+                onClick={() => (window.location.href = "https://app.cazza.ai/signup")}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
                 Start Free Trial

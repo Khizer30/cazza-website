@@ -1,18 +1,15 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { ArrowRight, Star, Zap } from "lucide-react";
 import Logo from "@assets/image/logo.webp";
 import { Button } from "@components/button";
 
 export default function Hero(): ReactNode {
-  const router = useRouter();
-
   return (
     <>
       <section className="relative overflow-hidden bg-linear-to-br from-background via-muted/30 to-background">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--hero-gradient-1)),transparent_50%),radial-gradient(circle_at_80%_20%,hsl(var(--hero-gradient-2)),transparent_50%),radial-gradient(circle_at_20%_80%,hsl(var(--hero-gradient-3)),transparent_50%)] opacity-20 animate-gradient-shift bg-[length:200%_200%]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--hero-gradient-1)),transparent_50%),radial-gradient(circle_at_80%_20%,hsl(var(--hero-gradient-2)),transparent_50%),radial-gradient(circle_at_20%_80%,hsl(var(--hero-gradient-3)),transparent_50%)] opacity-20 animate-gradient-shift bg-size-[200%_200%]" />
           <div className="absolute top-20 left-[10%] w-32 h-32 border-2 border-primary/20 rounded-lg animate-float-1" />
           <div className="absolute top-40 right-[15%] w-24 h-24 border-2 border-accent/30 rotate-45 animate-float-2" />
           <div className="absolute bottom-32 left-[20%] w-20 h-20 bg-primary/10 rounded-full animate-float-3" />
@@ -33,7 +30,7 @@ export default function Hero(): ReactNode {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  onClick={() => router.push("/signup")}
+                  onClick={() => (window.location.href = "https://app.cazza.ai/signup")}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105 group"
                 >
                   Start Free Trial Today
