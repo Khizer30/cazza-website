@@ -15,7 +15,6 @@ export default function Footer(): ReactNode {
   const scrollToSection = (sectionId: string) => (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-    window.history.pushState(null, "", `#${sectionId}`);
   };
 
   return (
