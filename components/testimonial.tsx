@@ -1,7 +1,8 @@
+"use client";
 import { useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@components/button";
-import { Card, CardContent } from "@/components/card";
+import { Card, CardContent } from "@components/card";
 
 export default function Testimonial(): ReactNode {
   const testimonials = [

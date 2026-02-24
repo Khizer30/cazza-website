@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { faAmazon, faTiktok, faShopify, faMixer } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Card, CardContent } from "@/components/card";
+import { Card, CardContent } from "@components/card";
 
 export default function Partner(): ReactNode {
   return (

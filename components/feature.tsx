@@ -1,11 +1,12 @@
+"use client";
 import type { ReactNode } from "react";
 import { faAmazon, faTiktok, faShopify, faMixer } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RefreshCw, Send, Bot } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Button } from "@components/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/card";
-import { Input } from "@/components/input";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@components/card";
+import { Input } from "@components/input";
 
 export default function Feature(): ReactNode {
   const tempRevenueData = [
