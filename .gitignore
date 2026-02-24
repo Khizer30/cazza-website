@@ -6,6 +6,7 @@ node_modules
 
 # Build Output
 build
+.next
 
 # Environment Variable Files
 .env
