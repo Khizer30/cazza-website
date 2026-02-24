@@ -6,7 +6,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Cazza AI | Instant Financial Insights for E-commerce stores",
   description:
-    "Stop manual spreadsheets. Cazza.ai connects Amazon, TikTok Shop, and Shopify to give you instant profit insights and automated Xero reconciliation. Start your free trial today."
+    "Stop manual spreadsheets. Cazza.ai connects Amazon, TikTok Shop, and Shopify to give you instant profit insights and automated Xero reconciliation. Start your free trial today.",
+  icons: {
+    icon: "/favicon.png"
+  }
 };
 
 export default function RootLayout({ children }: Children): ReactNode {
