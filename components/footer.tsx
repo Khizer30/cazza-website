@@ -25,7 +25,14 @@ export default function Footer(): ReactNode {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="space-y-4">
               <Link href={LINKS.home} className="inline-block hover:opacity-80 transition-opacity">
-                <Image src={Logo} alt="Cazza" height={32} width={120} className="h-8 w-auto brightness-0 invert" />
+                <Image
+                  src={Logo}
+                  alt="Cazza"
+                  height={32}
+                  width={120}
+                  draggable={false}
+                  className="h-8 w-auto brightness-0 invert"
+                />
               </Link>
               <p className="text-sm text-background/70">
                 Cazza is developed by Social Commerce Accountants Ltd, a UK-registered company (Company No. 13802919).

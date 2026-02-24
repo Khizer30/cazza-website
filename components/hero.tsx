@@ -75,7 +75,7 @@ export default function Hero(): ReactNode {
                         <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
                           <Zap className="w-4 h-4 text-primary" />
                         </div>
-                        <Image src={Logo} alt="Cazza" height={16} width={64} className="h-4 w-auto" />
+                        <Image src={Logo} alt="Cazza" height={16} width={64} draggable={false} className="h-4 w-auto" />
                       </div>
                       <p className="text-sm text-muted-foreground dark:text-white">
                         Yesterday&apos;s profit comparison:

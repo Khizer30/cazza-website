@@ -25,7 +25,7 @@ export default function Navbar(): ReactNode {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href={LINKS.home} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <Image src={Logo} alt="Cazza Logo" height={32} width={120} className="h-8 w-auto" />
+              <Image src={Logo} alt="Cazza Logo" height={32} width={120} draggable={false} className="h-8 w-auto" />
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">

@@ -20,7 +20,7 @@ export default function WhyCazza(): ReactNode {
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-foreground text-center">Before Cazza</h3>
                   <div className="border-2 border-border rounded-lg overflow-hidden bg-background relative h-64">
-                    <Image src={beforeImg} alt="Before using Cazza" fill className="object-contain" />
+                    <Image src={beforeImg} alt="Before using Cazza" fill draggable={false} className="object-contain" />
                   </div>
                   <p className="text-sm text-muted-foreground text-center">
                     Manual data entry, spreadsheets, and time-consuming reconciliation
@@ -31,7 +31,7 @@ export default function WhyCazza(): ReactNode {
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-foreground text-center">After Cazza</h3>
                   <div className="border-2 border-primary/30 rounded-lg overflow-hidden bg-background relative h-64">
-                    <Image src={afterImg} alt="After using Cazza" fill className="object-contain" />
+                    <Image src={afterImg} alt="After using Cazza" fill draggable={false} className="object-contain" />
                   </div>
                   <p className="text-sm text-muted-foreground text-center">
                     Instant answers, automated insights, and real-time financial clarity
