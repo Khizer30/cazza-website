@@ -16,3 +16,19 @@ export interface GetBlogsResponse {
   message: string;
   data: Blog[];
 }
+
+export interface BlogDetailUser {
+  firstName: string;
+  lastName: string;
+}
+
+export interface BlogDetail extends Blog {
+  body: string;
+  user?: BlogDetailUser;
+}
+
+export interface GetBlogDetailResponse {
+  success: boolean;
+  message: string;
+  data: BlogDetail | null;
+}

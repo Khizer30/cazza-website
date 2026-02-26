@@ -1,4 +1,4 @@
-import type { GetBlogsResponse } from "@typedefs/blog";
+import type { GetBlogDetailResponse, GetBlogsResponse } from "@typedefs/blog";
 
 const getBaseUrl = () => (process.env.BACKEND_URL ?? "").replace(/\/$/, "");
 
@@ -38,6 +38,39 @@ export const getBlogsService = async (
       success: false,
       message: error instanceof Error ? error.message : "Unknown error occurred",
       data: []
+    };
+  }
+};
+
+export const getBlogDetailService = async (id: string): Promise<GetBlogDetailResponse> => {
+  try {
+    const url = `${getBaseUrl()}/blogs/${id}`;
+    const response = await fetch(url, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      const message = body?.message ?? response.statusText;
+      return {
+        success: false,
+        message: message ?? "Unknown error occurred",
+        data: null
+      };
+    }
+
+    const data: GetBlogDetailResponse = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching blog detail:", error);
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "Unknown error occurred",
+      data: null
     };
   }
 };
