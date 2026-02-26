@@ -2,10 +2,10 @@ export const LINKS = {
   home: "/",
   blog: "/blog",
 
-  solutionSection: "#solution",
-  platformsSection: "#platforms",
-  pricingSection: "#pricing",
-  faqSection: "#faq",
+  solutionSection: "/#solution",
+  platformsSection: "/#platforms",
+  pricingSection: "/#pricing",
+  faqSection: "/#faq",
 
   privacyPolicy: "/privacy-policy",
   termsAndConditions: "/terms-and-conditions",

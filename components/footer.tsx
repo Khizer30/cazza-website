@@ -14,8 +14,13 @@ export default function Footer(): ReactNode {
   }, []);
 
   const scrollToSection = (sectionId: string) => (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   return (
