@@ -1,6 +1,6 @@
 import type { GetBlogDetailResponse, GetBlogsResponse } from "@typedefs/blog";
 
-const getBaseUrl = () => (process.env.BACKEND_URL ?? "").replace(/\/$/, "");
+const getBaseUrl = () => (process.env.NEXT_PUBLIC_BACKEND_URL ?? "").replace(/\/$/, "");
 
 export const getBlogsService = async (
   status?: "DRAFT" | "PUBLISHED" | "ARCHIVED",
