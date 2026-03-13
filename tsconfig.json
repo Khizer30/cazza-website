@@ -27,6 +27,7 @@
       "@hooks/*": ["./hooks/*"],
       "@lib/*": ["./lib/*"],
       "@services/*": ["./services/*"],
+      "@stores/*": ["./stores/*"],
       "@typedefs/*": ["./types/*"],
       "@/*": ["./*"]
     }
