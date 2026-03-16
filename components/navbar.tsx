@@ -51,6 +51,9 @@ export default function Navbar(): ReactNode {
               <Link href={LINKS.blog} className="text-foreground hover:text-primary transition-colors">
                 Blog
               </Link>
+              <Link href={LINKS.chatbot} className="text-foreground hover:text-primary transition-colors">
+                Chatbot
+              </Link>
               <a
                 href={LINKS.pricingSection}
                 onClick={scrollToSection("pricing")}

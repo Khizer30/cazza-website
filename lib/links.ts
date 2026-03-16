@@ -1,6 +1,7 @@
 export const LINKS = {
   home: "/",
   blog: "/blog",
+  chatbot: "/chatbot",
 
   solutionSection: "/#solution",
   platformsSection: "/#platforms",
