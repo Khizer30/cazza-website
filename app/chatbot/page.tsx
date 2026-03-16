@@ -172,8 +172,8 @@ export default function Page() {
                       className={cn(
                         "relative px-4 py-3 shadow-xs transition-all",
                         message.role === "user"
-                          ? "max-w-[85%] sm:max-w-[70%] bg-primary text-primary-foreground rounded-2xl rounded-tr-none"
-                          : "max-w-[90%] sm:max-w-[85%] bg-card border border-border text-foreground rounded-2xl rounded-tl-none"
+                          ? "max-w-[85%] sm:max-w-[70%] bg-primary text-primary-foreground rounded-2xl rounded-tr-none wrap-break-word"
+                          : "max-w-[90%] sm:max-w-[85%] bg-card border border-border text-foreground rounded-2xl rounded-tl-none wrap-break-word"
                       )}
                     >
                       {message.role === "assistant" ? (
@@ -222,7 +222,7 @@ export default function Page() {
                 <div ref={messagesEndRef} className="h-4" />
               </div>
             ) : (
-              <div className="flex h-[calc(100vh-250px)] flex-col items-center justify-center pt-8 text-center">
+              <div className="flex min-h-[calc(100vh-250px)] flex-col items-center justify-center pt-8 text-center">
                 <div className="relative mb-8 flex h-24 w-24 items-center justify-center">
                   <div className="absolute inset-0 animate-ping rounded-full bg-primary/10 opacity-75" />
                   <div className="bg-primary/5 relative flex h-20 w-20 items-center justify-center rounded-full border border-primary/20 shadow-inner">
@@ -241,7 +241,7 @@ export default function Page() {
                     <Button
                       key={index}
                       variant="outline"
-                      className="hover:border-primary/50 hover:bg-primary/5 h-auto justify-start border-border bg-card p-4 text-left transition-all hover:shadow-md dark:bg-card/40"
+                      className="hover:border-primary/50 hover:bg-primary/5 h-auto w-full justify-start border-border bg-card p-4 text-left transition-all hover:shadow-md dark:bg-card/40 whitespace-normal wrap-break-word"
                       onClick={() => handleSendMessage(prompt)}
                     >
                       <div className="flex flex-col gap-1">
