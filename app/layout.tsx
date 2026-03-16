@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import type { Children } from "@typedefs/types";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@lib/reactQuery";
+import Providers from "@components/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +17,7 @@ export default function RootLayout({ children }: Children): ReactNode {
   return (
     <html lang="en" className="dark">
       <body>
-        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
