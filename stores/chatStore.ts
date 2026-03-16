@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
 export interface ChatMessage {
   id: string;
@@ -10,25 +11,46 @@ export interface ChatMessage {
 interface ChatState {
   messages: ChatMessage[];
   isLoading: boolean;
+}
 
+interface ChatActions {
   addMessage: (message: ChatMessage) => void;
   setMessages: (messages: ChatMessage[]) => void;
   clearMessages: () => void;
   setLoading: (loading: boolean) => void;
 }
 
-export const useChatStore = create<ChatState>((set) => ({
-  messages: [],
-  isLoading: false,
+type ChatStore = ChatState & ChatActions;
 
-  addMessage: (message) =>
-    set((state) => ({
-      messages: [...state.messages, message]
-    })),
+export const useChatStore = create<ChatStore>()(
+  devtools(
+    persist(
+      (set) => ({
+        messages: [],
+        isLoading: false,
 
-  setMessages: (messages) => set({ messages }),
+        addMessage: (message) =>
+          set(
+            (state) => ({
+              messages: [...state.messages, message]
+            }),
+            false,
+            "chat/addMessage"
+          ),
 
-  clearMessages: () => set({ messages: [] }),
+        setMessages: (messages) => set({ messages }, false, "chat/setMessages"),
 
-  setLoading: (loading) => set({ isLoading: loading })
-}));
+        clearMessages: () => set({ messages: [] }, false, "chat/clearMessages"),
+
+        setLoading: (loading) => set({ isLoading: loading }, false, "chat/setLoading")
+      }),
+      {
+        name: "chatStorage",
+        partialize: (state) => ({
+          messages: state.messages
+        })
+      }
+    ),
+    { name: "ChatStore" }
+  )
+);

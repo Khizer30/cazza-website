@@ -1,6 +1,6 @@
 export const suggestedPrompts = [
-  "What's my TikTok profit this month?",
-  "Am I close to the £90k VAT threshold?",
-  "What's my profit on TikTok vs Amazon?",
-  "How do I map Shopify into Xero?"
+  "How to track profit across multiple sales channels?",
+  "How does the £90k VAT threshold monitoring work?",
+  "Compare profit performance between TikTok and Amazon",
+  "How to map Shopify data into Xero?"
 ];

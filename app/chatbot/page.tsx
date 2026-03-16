@@ -21,7 +21,10 @@ import Navbar from "@components/navbar";
 import { ScrollArea } from "@components/scrollArea";
 import { useChatbot } from "@hooks/useChatbot";
 import { suggestedPrompts } from "@lib/prompt";
+import { useAuthStore } from "@stores/authStore";
 import { cn } from "@lib/utils";
+
+import { DemoUserModal } from "@components/demoUserModal";
 
 const markdownComponents: Components = {
   p: ({ children }) => <p className="mb-3 last:mb-0 text-foreground leading-relaxed">{children}</p>,
@@ -78,6 +81,7 @@ export default function Page() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const { messages, askQuestion, clearChatHistory, isLoading, isHistoryLoading } = useChatbot();
+  const userName = useAuthStore((state) => state.user?.name);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -103,7 +107,9 @@ export default function Page() {
 
   return (
     <ChatbotLayout>
+      <DemoUserModal />
       <Navbar />
+
       <div className="flex h-[calc(100vh-64px)] flex-col bg-background">
         {/* Header */}
         <header className="flex shrink-0 items-center justify-between border-b border-border bg-card px-6 py-4 shadow-sm">
@@ -223,11 +229,13 @@ export default function Page() {
                     <Image src={Logo} alt="Cazza Logo" className="h-10 w-10 object-contain" />
                   </div>
                 </div>
-                <h2 className="mb-2 text-3xl font-bold text-foreground">How can I help you?</h2>
+                <h2 className="mb-2 text-3xl font-bold text-foreground">
+                  How can I help you{userName ? `, ${userName}` : ""}?
+                </h2>
+
                 <p className="mb-10 max-w-md text-muted-foreground">
                   Ask me anything about your TikTok shop, Amazon business, or VAT compliance.
                 </p>
-
                 <div className="grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
                   {suggestedPrompts.map((prompt, index) => (
                     <Button
