@@ -36,7 +36,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "pnpm dev",
+    command: "pnpm start",
     // url: process.env.FRONTEND_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 70000
