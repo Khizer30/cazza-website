@@ -20,19 +20,25 @@ export default defineConfig({
 
   projects: [
     {
-      name: "Chromium",
-      use: { ...devices["Desktop Chrome"] }
+      name: "setup",
+      testMatch: /login\.ts/
     },
     {
-      name: "Mobile Chrome",
-      use: { ...devices["Pixel 5"] }
+      name: "Chromium",
+      use: { ...devices["Desktop Chrome"], storageState: "playwright/user.json" },
+      dependencies: ["setup"]
     }
+    // {
+    //   name: "Mobile Chrome",
+    //   use: { ...devices["Pixel 5"], storageState: "playwright/user.json" },
+    //   dependencies: ["setup"]
+    // }
   ],
 
   webServer: {
     command: "pnpm dev",
     // url: process.env.FRONTEND_URL,
     reuseExistingServer: !process.env.CI,
-    timeout: 60000
+    timeout: 70000
   }
 });
