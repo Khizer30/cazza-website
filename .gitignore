@@ -15,3 +15,8 @@ build
 
 # Developer Directories
 .Extras
+
+# Playwright
+playwright
+playwright-report
+test-results
